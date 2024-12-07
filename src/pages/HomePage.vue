@@ -10,7 +10,6 @@ const navigateToReadQuran = () => {
   router.push('/surahPage');
 };
 
-// Fungsi Toggle Dark Mode
 const toggleDarkMode = () => {
   isDarkMode.value = !isDarkMode.value;
   document.documentElement.classList.toggle('dark', isDarkMode.value);
@@ -20,7 +19,7 @@ const toggleDarkMode = () => {
 <template>
   <div class="relative min-h-screen flex items-center justify-center px-6 overflow-hidden transition-colors duration-300 dark:bg-gray-900 dark:text-white">
     
-    <!-- Efek Cahaya -->
+    <!-- efek cahaya -->
     <div class="absolute inset-0 -z-10">
       <div class="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-teal-400 opacity-50 blur-[150px] rounded-full animate-pulse"></div>
       <div class="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-cyan-300 opacity-40 blur-[100px] rounded-full animate-ping"></div>
