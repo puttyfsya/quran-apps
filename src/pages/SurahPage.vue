@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { getSurahs } from '@/services/DaftarSurahApi';
 
+
 const router = useRouter();
 const surahs = ref([]);
 const searchData = ref('');
