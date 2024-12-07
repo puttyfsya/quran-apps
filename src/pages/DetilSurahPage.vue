@@ -47,6 +47,7 @@ onMounted(fetchSurahDetail);
         <p class="text-gray-500 text-center text-sm md:text-base">
           {{ surah.name.translation.id }}
         </p>
+        <p class="text-center text-sm md:text-base"> بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم </p>
   
         <p class="mt-4 text-gray-600 text-sm md:text-base">
           Jumlah Ayat: <span class="font-semibold">{{ surah.numberOfVerses }}</span>
