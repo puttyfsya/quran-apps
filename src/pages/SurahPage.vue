@@ -7,12 +7,12 @@ const router = useRouter();
 const surahs = ref([]);
 const searchData = ref('');
 
-// Fungsi untuk kembali ke halaman utama
+// kembali ke halaman utama
 const goBack = () => {
   router.push('/'); 
 };
 
-// Fungsi untuk mendapatkan data surah dari API
+// get data surah dari API
 const fetchSurahs = async () => {
   try {
     const data = await getSurahs();
@@ -27,7 +27,7 @@ const goToSurahDetail = (id) => {
   router.push(`/surah/${id}`);
 };
 
-// Fungsi pencarian surah
+// Fungsi search
 const search = () => {
   if (searchData.value.trim()) {
     surahs.value = surahs.value.filter(
@@ -40,7 +40,7 @@ const search = () => {
   }
 };
 
-// Ambil data saat komponen dipasang
+// fetching data
 onMounted(fetchSurahs);
 </script>
 
