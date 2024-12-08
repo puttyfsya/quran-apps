@@ -81,7 +81,7 @@ onMounted(() => {
     <div 
       v-if="surah" 
       :class="{'bg-gray-900 text-white': isDarkMode, 'bg-white text-black': !isDarkMode}" 
-      class="rounded-2xl p-4 md:p-8 h-auto h-[90vh] overflow-y-auto shadow-md"
+      class="rounded-2xl p-4 md:p-8 h-auto md:h-[90vh] overflow-y-auto shadow-md mb-6"
     >
       <!-- Header -->
       <div class="relative flex items-center justify-center mb-4">
@@ -96,7 +96,7 @@ onMounted(() => {
         </h2>
 
         <!-- Toggle Dark Mode -->
-        <div class="absolute right-4 flex items-end justify-center">
+        <div class="absolute right-4 flex items-center justify-center">
           <label class="relative inline-flex items-center cursor-pointer">
             <input 
               type="checkbox" 
@@ -110,7 +110,7 @@ onMounted(() => {
         </div>
       </div>
 
-      <p class=" text-center text-sm md:text-base">{{ surah.name.translation.id }}</p>
+      <p class="text-center text-sm md:text-base">{{ surah.name.translation.id }}</p>
       <p class="text-center text-sm md:text-base"> بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم </p>
 
       <p class="mt-4 text-sm md:text-base">
@@ -129,40 +129,41 @@ onMounted(() => {
         <div class="text-lg md:text-xl font-bold text-right leading-relaxed">
           {{ ayah.text.arab }}
         </div>
-        <div class=" text-left text-sm md:text-base"> Artinya:</div>
+        <div class="text-left text-sm md:text-base"> Artinya:</div>
         <div class="text-left text-sm md:text-base">
           {{ ayah.translation.id }}
         </div>
       </div>
-
-      <!-- Navigasi Surah -->
-      <div class="flex justify-between mt-6">
-        <button 
-          @click="goToPreviousSurah" 
-          :disabled="surahId <= 1"
-          class="bg-teal-600 py-2 px-6 rounded-full hover:bg-teal-700 transition-all disabled:opacity-50"
-        >
-          Previous
-        </button>
-        <button 
-          @click="goToPreviousSurah" 
-          :disabled="surahId <= 1"
-          class="bg-teal-600 py-2 px-6 rounded-full hover:bg-teal-700 transition-all disabled:opacity-50"
-        >
-          Tafsir
-        </button>
-        <button 
-          @click="goToNextSurah" 
-          class="bg-teal-600 py-2 px-6 rounded-full hover:bg-teal-700 transition-all"
-        >
-          Next
-        </button>
-      </div>
     </div>
-    
+
     <div v-else>
       <p class="text-center text-gray-600">Loading surah details...</p>
     </div>
+
+    <!-- Navigasi Surah (di luar kotak yang bergulir) -->
+    <div class="flex flex-col md:flex-row justify-between mt-4 md:mt-6 mb-4 space-y-2 md:space-y-0">
+      <button 
+        @click="goToPreviousSurah" 
+        :disabled="surahId <= 1"
+        class="bg-teal-600 py-2 px-6 rounded-full hover:bg-teal-700 transition-all disabled:opacity-50"
+      >
+        Previous
+      </button>
+      <button 
+        @click="goToPreviousSurah" 
+        :disabled="surahId <= 1"
+        class="bg-teal-600 py-2 px-6 rounded-full hover:bg-teal-700 transition-all disabled:opacity-50"
+      >
+        Tafsir
+      </button>
+      <button 
+        @click="goToNextSurah" 
+        class="bg-teal-600 py-2 px-6 rounded-full hover:bg-teal-700 transition-all"
+      >
+        Next
+      </button>
+    </div>
+
   </div>
 </template>
 
