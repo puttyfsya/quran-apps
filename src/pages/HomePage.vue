@@ -1,21 +1,35 @@
-<script setup>
-import { useRouter } from 'vue-router';
-import { ref } from 'vue';
+  <script setup>
+  import { useRouter } from 'vue-router';
+  import { ref, onMounted } from 'vue';
 
-const router = useRouter();
-const isDarkMode = ref(false);
+  // Mengambil status mode gelap dari localStorage jika ada
+  const isDarkMode = ref(localStorage.getItem('darkMode') === 'true'); 
 
-// Navigasi ke halaman Surah
-const navigateToReadQuran = () => {
-  router.push('/surahPage');
-};
+  const router = useRouter();
 
-// Fungsi Toggle Dark Mode
-const toggleDarkMode = () => {
-  isDarkMode.value = !isDarkMode.value;
-  document.documentElement.classList.toggle('dark', isDarkMode.value);
-};
-</script>
+  // Navigasi ke halaman Surah
+  const navigateToReadQuran = () => {
+    router.push('/surahPage');
+  };
+
+  // Fungsi Toggle Dark Mode
+  const toggleDarkMode = () => {
+    isDarkMode.value = !isDarkMode.value; // Mengubah status mode gelap
+    localStorage.setItem('darkMode', isDarkMode.value); // Menyimpan status ke localStorage
+
+    // Menambahkan atau menghapus kelas 'dark' pada elemen root
+    document.documentElement.classList.toggle('dark', isDarkMode.value);
+  };
+
+  // Menambahkan class 'dark' pada root saat halaman pertama kali dimuat jika mode gelap aktif
+  onMounted(() => {
+    if (isDarkMode.value) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  });
+  </script>
 
 <template>
   <div 
