@@ -56,7 +56,7 @@ onMounted(fetchSurahs);
     <div class="absolute inset-0 bg-black opacity-50"></div>
     <div class="container mx-auto px-4 py-8 relative z-10">
       <!-- Header -->
-      <div class="bg-teal-500 w-full py-4 mb-4 text-white rounded">
+      <div class="bg-teal-500 w-full py-4 mb-4 text-white rounded-xl">
         <div class="flex flex-wrap items-center justify-between px-4 gap-4">
           <!-- Tombol Back -->
           <button @click="goBack" class="text-white hover:text-gray-200">
@@ -80,29 +80,35 @@ onMounted(fetchSurahs);
         </div>
       </div>
 
-      <!-- Daftar Surah -->
-      <div v-if="surahs.length > 0" class="bg-white rounded-2xl px-4 py-2">
-        <div
-          v-for="surah in surahs"
-          :key="surah.number"
-          class="border-b py-4 cursor-pointer flex flex-col md:flex-row items-center justify-between gap-4"
-          @click="goToSurahDetail(surah.number)"
-        >
-          <!-- Nomor Nama Surah -->
-          <div class="flex items-center justify-between w-full">
-            <div class="flex items-center space-x-4">
-              <div class="bg-teal-500 text-white rounded-full w-12 h-12 flex items-center justify-center text-lg font-bold">
-                {{ surah.number }}
-              </div>
-              <h2 class="text-xl font-bold text-teal-700 truncate">{{ surah.name.transliteration.id }}</h2>
+    <!-- Daftar Surah -->
+    <div 
+  v-if="surahs.length > 0" 
+  class="bg-white rounded-2xl px-4 py-2 h-[80vh] w-full max-w-screen-lg lg:max-w-screen-xl overflow-y-auto shadow-md mx-auto">
+
+      <div
+        v-for="surah in surahs"
+        :key="surah.number"
+        class="border-b py-4 cursor-pointer flex flex-col md:flex-row items-center justify-between gap-4"
+        @click="goToSurahDetail(surah.number)"
+      >
+        <!-- Nomor Nama Surah -->
+        <div class="flex items-center justify-between w-full">
+          <div class="flex items-center space-x-4">
+            <div class="bg-teal-500 text-white rounded-full w-12 h-12 flex items-center justify-center text-lg font-bold">
+              {{ surah.number }}
             </div>
-            <!-- Arab text -->
-            <h4 class="text-teal-700 font-semibold text-right">
-              {{ surah.name.short }}
-            </h4>
+            <h2 class="text-xl font-bold text-teal-700 truncate">
+              {{ surah.name.transliteration.id }}
+            </h2>
           </div>
+          <!-- Teks Arab -->
+          <h4 class="text-teal-700 font-semibold text-right">
+            {{ surah.name.short }}
+          </h4>
         </div>
       </div>
+    </div>
+
 
       <!-- Pesan Loading -->
       <div v-else>
