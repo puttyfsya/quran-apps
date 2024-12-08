@@ -59,7 +59,7 @@ const toggleDarkMode = () => {
               :checked="isDarkMode" 
               @change="toggleDarkMode" 
             />
-            <div class="w-11 h-6 bg-gray-200 rounded-full peer-checked:bg-teal-500 peer-focus:ring-2 peer-focus:ring-teal-300 dark:peer-focus:ring-gray-900 transition"></div>
+            <div class="w-11 h-6 bg-gray-200 rounded-full peer-checked:bg-teal-500 peer-focus:ring-2 peer-focus:ring-teal-300 dark:peer-focus:ring-gray-900transition"></div>
             <div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full peer-checked:translate-x-5 transition"></div>
           </label>
         </div>

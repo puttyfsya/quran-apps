@@ -54,7 +54,7 @@ onMounted(fetchSurahs);
 <template>
   <div class="relative min-h-screen bg-cover bg-center" :style="backgroundStyle">
     <div class="absolute inset-0 bg-black opacity-50"></div>
-    <div class="container mx-auto px-4 py-8 relative z-10">
+    <div class="container mx-auto px-4 py-3 relative z-10">
       <!-- Header -->
       <div class="bg-teal-500 w-full py-4 mb-4 text-white rounded-xl">
         <div class="flex flex-wrap items-center justify-between px-4 gap-4">
